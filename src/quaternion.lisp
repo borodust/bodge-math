@@ -53,7 +53,7 @@
 
 
 (defun quat->rotation-mat4-homo (q)
-  (make-wrapped 'mat3 (q:to-mat4 (value-of q))))
+  (make-wrapped 'mat4 (q:to-mat4 (value-of q))))
 
 
 (defmethod lerp ((this quat) (that quat) (f number))
