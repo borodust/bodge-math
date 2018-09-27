@@ -149,6 +149,10 @@
   (make-wrapped 'mat3 (m3:*v (value-of this) (value-of that))))
 
 
+(defmethod multiply ((this mat3) (that mat3))
+  (make-wrapped 'mat3 (m3:* (value-of this) (value-of that))))
+
+
 (defmethod multiply ((this mat3) (that number))
   (make-wrapped 'mat3 (m3:*s (value-of this) (f that))))
 

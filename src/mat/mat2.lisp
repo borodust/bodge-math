@@ -97,6 +97,10 @@
   (multiply (subtract this that) -1))
 
 
+(defmethod multiply ((this mat2) (that mat2))
+  (make-wrapped 'mat2 (m2:* (value-of this) (value-of that))))
+
+
 (defmethod multiply ((this mat2) (that vec2))
   (make-wrapped 'mat2 (m2:*v (value-of this) (value-of that))))
 
