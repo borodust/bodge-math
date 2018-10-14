@@ -26,6 +26,9 @@
            vec2
            vec3
            vec4
+           copy-vec2
+           copy-vec3
+           copy-vec4
            sequence->vec2
            sequence->vec3
            sequence->vec4

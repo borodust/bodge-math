@@ -20,10 +20,10 @@
 (defun (setf vref) (value vec idx)
   (let ((vec (value-of vec)))
     (ecase idx
-      (0 (setf (v:x vec) value))
-      (1 (setf (v:y vec) value))
-      (2 (setf (v:z vec) value))
-      (3 (setf (v:w vec) value)))))
+      (0 (setf (v:x vec) (f value)))
+      (1 (setf (v:y vec) (f value)))
+      (2 (setf (v:z vec) (f value)))
+      (3 (setf (v:w vec) (f value))))))
 
 
 (definline x (vec)
