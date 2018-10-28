@@ -87,4 +87,4 @@
 
 
 (defmethod dot-product ((this vec4) (that vec4))
-  (make-wrapped 'vec4 (v4:dot (value-of this) (value-of that))))
+  (v4:dot (value-of this) (value-of that)))
