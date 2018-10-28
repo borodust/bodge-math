@@ -146,7 +146,7 @@
 
 
 (defmethod multiply ((this mat3) (that vec3))
-  (make-wrapped 'mat3 (m3:*v (value-of this) (value-of that))))
+  (make-wrapped 'vec3 (m3:*v (value-of this) (value-of that))))
 
 
 (defmethod multiply ((this mat3) (that mat3))

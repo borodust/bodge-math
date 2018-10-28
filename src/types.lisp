@@ -80,6 +80,8 @@
          (indent (+ 2 (length class-name)))
          (mat (value-of object))
          (size (square-matrix-size object)))
+    (format t "~{~A, ~}" (list class-name indent mat size))
+    (finish-output t)
     (format stream "#<~A" class-name)
     (loop for j below size
           do (format stream " ~A" (funcall accessor mat 0 j)))
