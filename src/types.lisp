@@ -40,8 +40,10 @@
 (defgeneric value-of (vec))
 
 (defmethod print-object ((object vec) stream)
-  (format stream "#<~A ~{~A~^ ~}>"
-          (class-name-of object) (map 'list #'identity (value-of object))))
+  (print-unreadable-object (object stream
+                            :type (class-name-of object))
+    (format stream "~{~A~^ ~}"
+            (map 'list #'identity (value-of object)))))
 
 
 (defclass vec2 (vec)
@@ -76,18 +78,10 @@
 
 
 (defun print-mat (object accessor stream)
-  (let* ((class-name (symbol-name (class-name-of object)))
-         (indent (+ 2 (length class-name)))
-         (mat (value-of object))
-         (size (square-matrix-size object)))
-    (format stream "#<~A" class-name)
-    (loop for j below size
-          do (format stream " ~A" (funcall accessor mat 0 j)))
-    (loop for i from 1 below size
-          do (format stream "~&~vA" indent " ")
-             (loop for j below size
-                   do (format stream " ~A" (funcall accessor mat i j)))
-          finally (format stream ">"))))
+  (declare (ignore accessor))
+  (print-unreadable-object (object stream
+                            :type (class-name-of object))
+    (format stream "~{~A~^ ~}" (map 'list #'identity (value-of object)))))
 
 
 (defclass mat2 (square-mat)
