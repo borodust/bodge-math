@@ -48,6 +48,10 @@
   (make-wrapped 'mat2 (m2:rotation-from-euler (f angle))))
 
 
+(definline mat2->euler-angle (mat)
+  (atan (mref mat 1 0) (mref mat 0 0)))
+
+
 (defun sequence->mat2 (sequence)
   "Matrix must be serialized in sequence in row major order"
   (let ((val (m2:0!)))
@@ -55,8 +59,8 @@
                  (once-only (arr)
                    `(setf
                      ,@(loop for i from 0 below 2 append
-                            (loop for j from 0 below 2 append
-                                 `((m2:melm val ,i ,j) (f (aref ,arr ,(+ (* i 2) j))))))))))
+                                                  (loop for j from 0 below 2 append
+                                                        `((m2:melm val ,i ,j) (f (aref ,arr ,(+ (* i 2) j))))))))))
       (if (listp sequence)
           (%array->m2 (make-array 4 :initial-contents sequence))
           (%array->m2 sequence)))

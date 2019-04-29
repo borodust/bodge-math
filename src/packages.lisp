@@ -57,6 +57,7 @@
            sequence->mat3
            sequence->mat4
            euler-angle->mat2
+           mat2->euler-angle
            euler-angle->mat3-homo
            euler-angles->mat3
            euler-angles->mat4-homo
