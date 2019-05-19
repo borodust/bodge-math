@@ -13,6 +13,10 @@
   (v4:length (value-of this)))
 
 
+(defmethod vec= ((this vec4) (that vec4))
+  (v4:= (value-of this) (value-of that)))
+
+
 (defgeneric value->vec4 (val &key &allow-other-keys))
 
 

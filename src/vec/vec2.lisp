@@ -13,6 +13,10 @@
   (v2:length (value-of this)))
 
 
+(defmethod vec= ((this vec2) (that vec2))
+  (v2:= (value-of this) (value-of that)))
+
+
 (definline sequence->vec2 (seq)
   (vec2 (elt seq 0)
         (elt seq 1)))

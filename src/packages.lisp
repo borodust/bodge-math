@@ -23,6 +23,7 @@
            w
            vector-length
            vec->array
+           vec=
            vec2
            vec3
            vec4

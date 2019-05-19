@@ -8,6 +8,10 @@
 (defgeneric vector-length (vec))
 
 
+(defgeneric vec= (this that)
+  (:method ((this vec) (that vec)) (declare (ignore this that)) nil))
+
+
 (defun vref (vec idx)
   (let ((vec (value-of vec)))
     (ecase idx
